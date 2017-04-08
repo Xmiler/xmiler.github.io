@@ -12,8 +12,26 @@ So two substances completely defines current topic in the scope of machine learn
 
 ## The problem
 
-As for any machine learning problem we needed for training set which in our supervision case consist of *m* input vectors from $$\mathbb{R}^n$$ and *m* target variables from $$\mathbb{R}$$.
+As for any machine learning problem we are needed for training set which in our supervision case consist of *m* input vectors from $$\mathbb{R}^n$$ and *m* target variables from $$\mathbb{R}$$.
 
-Let represent set of input vectors by $$m \times n$$ matrix $$X$$ and appropriate targets by *m*-dimension vector $$\mathbf{y}$$. Then the least squares problem takes the following form: $$\frac{1}{2}(X\theta-\mathbf{y})^{T}(X\theta-\mathbf{y})\xrightarrow[\theta]{}\min$$
+Let represent set of input vectors by $$m \times n$$ matrix $$X$$ and appropriate targets by *m*-dimension vector $$\mathbf{y}$$. Then the least squares problem takes the following form: $$L=\frac{1}{2}(X\theta-\mathbf{y})^{T}(X\theta-\mathbf{y})\xrightarrow[\theta]{}\min$$. Or equavalently: $$\frac{\partial L}{\partial\theta}=0$$
 
-...
+$$
+L = \frac{1}{2}(\theta^{T}X^{T}X\theta-\theta^{T}X^{T}\mathbf{y}-\mathbf{y}^{T}X\theta+\mathbf{y}^{T}\mathbf{y})
+$$
+
+$$
+\frac{\partial L}{\partial\theta} = X^{T}X\theta-\frac{1}{2}X^{T}\mathbf{y}-\frac{1}{2}\mathbf{y}X^{T}=0
+$$
+
+$$
+X^{T}X\theta-X^{T}\mathbf{y}=0
+$$
+
+$$
+X^{T}X\theta=X^{T}\mathbf{y}
+$$
+
+$$
+\theta=(X^{T}X)^{-1}X^{T}\mathbf{y}
+$$
